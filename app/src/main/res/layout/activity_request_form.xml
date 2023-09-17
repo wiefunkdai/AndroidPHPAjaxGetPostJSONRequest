@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AndroidAjaxGetPostJSON by Stephanus Dai
+  @fullname : Stephanus Bagus Saputra
+              ( 戴 Dai 偉 Wie 峯 Funk )
+  @email    : wiefunk@stephanusdai.web.id
+  @contact  : http://t.me/wiefunkdai
+  @support  : http://opencollective.com/wiefunkdai
+  @weblink  : http://www.stephanusdai.web.id
+  Copyright (c) ID 2023 Stephanus Bagus Saputra. All rights reserved.
+  Terms of the following https://stephanusdai.web.id/p/license.html
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgPrimary">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="220dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_stephanusdai_logo"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".20"/>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Theme.RoundTopCard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <ProgressBar
+            android:id="@+id/prog_loader"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="30dp">
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_below="@id/comment_group"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:id="@+id/photo_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/preview_photo"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_camera_gallery"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/name_group"
+                android:layout_below="@id/photo_group"
+                android:layout_marginTop="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/name_label"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Your Name :"
+                    tools:ignore="HardcodedText,TextSizeCheck,VisualLintBounds" />
+
+                <EditText
+                    android:id="@+id/name_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|top"
+                    android:hint="Your Name"
+                    android:text="Stephanus Dai"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:labelFor="@id/name_label"
+                    tools:ignore="HardcodedText,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/email_group"
+                android:layout_below="@id/name_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/email_label"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Your Email :"
+                    tools:ignore="HardcodedText,TextSizeCheck,VisualLintBounds" />
+
+                <EditText
+                    android:id="@+id/email_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|top"
+                    android:hint="Your Email"
+                    android:text="stephanusdai@icloud.com"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:labelFor="@id/email_label"
+                    tools:ignore="HardcodedText,SpeakableTextPresentCheck,TextFields,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/comment_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email_group"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/comment_label"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Your Comment :"
+                    tools:ignore="HardcodedText,TextSizeCheck" />
+
+                <EditText
+                    android:id="@+id/comment_text"
+                    android:layout_width="200dp"
+                    android:layout_height="82dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Your Comment"
+                    android:text="Life is a choice, success is a gift! not give up &amp; dare to step up is better!"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:labelFor="@id/comment_label"
+                    android:lines="8"
+                    tools:ignore="HardcodedText,InefficientWeight,SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
